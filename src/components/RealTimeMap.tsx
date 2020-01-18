@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 export class RealTimeMap extends Component {
   private map!: google.maps.Map
 
-  componentDidMount() {
+  async componentDidMount() {
+
     this.initMap()
   }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cosmonaut: React.FC = () => {
+const CosmonautElement: React.FC = () => {
   return (
     <div className="cosmonaut">
       <div className="bio">
@@ -28,4 +28,4 @@ const Cosmonaut: React.FC = () => {
   )
 }
 
-export default Cosmonaut
+export default CosmonautElement

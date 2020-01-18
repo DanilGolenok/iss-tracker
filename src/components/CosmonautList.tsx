@@ -1,16 +1,16 @@
 import React from 'react'
-import Cosmonaut from './Cosmonaut'
+import CosmonautElement from './CosmonautElement'
 
 const CosmonautList: React.FC = () => {
   return (
     <div className="cosmonaut-list">
       <div className="list scrollbar">
-        <Cosmonaut />
-        <Cosmonaut />
-        <Cosmonaut />
-        <Cosmonaut />
-        <Cosmonaut />
-        <Cosmonaut />
+        <CosmonautElement />
+        <CosmonautElement />
+        <CosmonautElement />
+        <CosmonautElement />
+        <CosmonautElement />
+        <CosmonautElement />
       </div>
       <span className="total">Total amount: 6 people on ISS</span>
     </div>
