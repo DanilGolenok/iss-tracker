@@ -5,13 +5,15 @@ import Cosmonaut from '../business/models/Cosmonaut'
 import uuid from 'uuid'
 
 const CosmonautList: React.FC = () => {
-  const issPeople = new ISSPeopleService()
+  const issPeopleService = new ISSPeopleService()
   const [cosmonautList, setCosmonautList] = useState<Cosmonaut[]>([])
 
-  useEffect(() => {
-    const peopleOnIss = issPeople.getPeopleOnISS()
+  useEffect(() => updatePeopleOnISS(), [])
+
+  const updatePeopleOnISS = () => {
+    const peopleOnIss = issPeopleService.getPeopleOnISS()
     setCosmonautList(peopleOnIss)
-  }, [])
+  }
 
   return (
     <div className="cosmonaut-list">

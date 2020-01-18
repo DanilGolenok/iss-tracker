@@ -1,3 +1,14 @@
 .location {
   padding: 10px;
+
+  .location-info {
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

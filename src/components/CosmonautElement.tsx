@@ -12,11 +12,11 @@ const CosmonautElement: React.FC<Props> = ({ cosmonaut }) => {
     <div className="cosmonaut">
       <div className="bio">
         <div className="photo">
-          <img src={photo} alt="photo" />
+          <img src={photo} alt="cosmonaut photo" />
         </div>
         <div className="person-info">
           <span className="name">{name}</span>
-          <img src={flag} alt="flag" className="flag" />
+          <img src={flag} alt="country flag" className="flag" />
           <span className="title">{title}</span>
         </div>
       </div>
