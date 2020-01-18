@@ -1,15 +1,15 @@
 .cosmonaut-list {
+  .total {
+    margin-top: 5px;
+    margin-left: 10px;
+    color: $minor-color;
+  }
+
   .list {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     max-height: 90%;
-
-    .total {
-      margin-top: 5px;
-      margin-left: 10px;
-      color: $minor-color;
-    }
 
     .cosmonaut {
       display: flex;
@@ -52,9 +52,10 @@
       }
 
       .launch-info {
+        text-align: end;
+
         .duration {
           font-size: 26px;
-          text-align: end;
         }
 
         .label {

@@ -5,7 +5,7 @@ interface ISSPosition {
   }
 }
 
-export default class ISSLocationService{
+export default class ISSLocationService {
   async getISSLocation(): Promise<google.maps.LatLng> {
     const URL = 'http://api.open-notify.org/iss-now.json'
 

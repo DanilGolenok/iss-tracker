@@ -8,7 +8,7 @@ body {
   font-family: 'Roboto', sans-serif;
   color: $light-color;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   .app {

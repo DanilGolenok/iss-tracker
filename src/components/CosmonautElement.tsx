@@ -1,27 +1,27 @@
 import React from 'react'
+import Cosmonaut from '../business/models/Cosmonaut'
 
-const CosmonautElement: React.FC = () => {
+interface Props {
+  cosmonaut: Cosmonaut
+}
+
+const CosmonautElement: React.FC<Props> = ({ cosmonaut }) => {
+  const { name, title, photo, flag, daysInSpace } = cosmonaut
+
   return (
     <div className="cosmonaut">
       <div className="bio">
         <div className="photo">
-          <img
-            src="http://www.howmanypeopleareinspacerightnow.com/app/biophotos/alexander-skvortsov.jpg"
-            alt="photo"
-          />
+          <img src={photo} alt="photo" />
         </div>
         <div className="person-info">
-          <span className="name">Alexander Skvortsov</span>
-          <img
-            src="http://www.howmanypeopleareinspacerightnow.com/app/flags/flag-russia.jpg"
-            alt="flag"
-            className="flag"
-          />
-          <span className="title">Flight Engineer</span>
+          <span className="name">{name}</span>
+          <img src={flag} alt="flag" className="flag" />
+          <span className="title">{title}</span>
         </div>
       </div>
       <div className="launch-info">
-        <div className="duration">182</div>
+        <div className="duration">{daysInSpace}</div>
         <span className="label">Days in space</span>
       </div>
     </div>
