@@ -1,0 +1,74 @@
+.cosmonaut-list {
+  .list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 90%;
+
+    .total {
+      margin-top: 5px;
+      margin-left: 10px;
+      color: $minor-color;
+    }
+
+    .cosmonaut {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-radius: 4px;
+      transition: all 200ms ease;
+      margin-bottom: 5px;
+      margin-right: 5px;
+
+      .bio {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .photo img {
+          height: 60px;
+          border-radius: 2px;
+        }
+
+        .person-info {
+          margin-left: 15px;
+
+          .name {
+            font-size: 26px;
+            display: block;
+          }
+
+          .flag {
+            height: 10px;
+          }
+
+          .title {
+            font-size: 14px;
+            margin-left: 10px;
+            color: $minor-color;
+          }
+        }
+      }
+
+      .launch-info {
+        .duration {
+          font-size: 26px;
+          text-align: end;
+        }
+
+        .label {
+          font-size: 14px;
+          text-transform: uppercase;
+          color: $minor-color;
+        }
+      }
+
+      &:hover {
+        background-color: $light-color;
+        color: $bg-color;
+        cursor: pointer;
+      }
+    }
+  }
+}

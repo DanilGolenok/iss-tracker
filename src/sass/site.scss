@@ -1,2 +1,18 @@
+@import './resources';
 @import './app';
 @import './cosmonaut';
+@import './location';
+@import './time';
+
+.scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px inherit;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: $minor-color;
+  border-radius: 10px;
+}
