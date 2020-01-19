@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Component } from 'react'
+import React, { Component } from 'react'
 import moment from 'moment'
-import Interval from '../business/models/Interval'
 
 type State = {
   timeFormat: string
