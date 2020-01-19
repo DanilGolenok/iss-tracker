@@ -24,7 +24,7 @@ class Time extends Component {
   }
 
   updateDate() {
-    const date = moment()
+    const date = moment().utc()
     this.setState({
       timeFormat: date.format('h:mm:ss A'),
       dateFormat: date.format('dddd, D MMM YYYY')
