@@ -1,21 +1,45 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Component } from 'react'
 import moment from 'moment'
+import Interval from '../business/models/Interval'
 
-const Time: React.FC = () => {
-  const [date, setDate] = useState<moment.Moment>(moment().utc())
+type State = {
+  timeFormat: string
+  dateFormat: string
+}
 
-  useEffect(() => updateDate(), [])
+class Time extends Component {
+  readonly state!: State
 
-  const updateDate = () => {
-    setDate(moment().utc())
+  constructor(props: any) {
+    super(props)
+
+    this.state = {
+      timeFormat: '',
+      dateFormat: ''
+    }
   }
 
-  return (
-    <div className="time">
-      <h3 className="utc-time">Current UTC time: {date.format('h:mm:ss A')}</h3>
-      <span className="date">{date.format('dddd, D MMM YYYY')}</span>
-    </div>
-  )
+  componentDidMount() {
+    this.updateDate()
+    setInterval(() => this.updateDate(), 1000)
+  }
+
+  updateDate() {
+    const date = moment()
+    this.setState({
+      timeFormat: date.format('h:mm:ss A'),
+      dateFormat: date.format('dddd, D MMM YYYY')
+    })
+  }
+
+  render() {
+    return (
+      <div className="time">
+        <h3 className="utc-time">Current UTC time: {this.state.timeFormat}</h3>
+        <span className="date">{this.state.dateFormat}</span>
+      </div>
+    )
+  }
 }
 
 export default Time

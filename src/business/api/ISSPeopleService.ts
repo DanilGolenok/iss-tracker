@@ -1,6 +1,6 @@
 import Cosmonaut from '../models/Cosmonaut'
 import moment from 'moment'
-import apiPeopleInSpace from './people-in-space.json'
+import apiPeopleInSpace from './peopleinspace.json'
 
 interface PersonInSpace {
   name: string
@@ -9,6 +9,7 @@ interface PersonInSpace {
   launchdate: string
   title: string
   location: string
+  biolink: string
 }
 
 /**
@@ -25,7 +26,7 @@ interface PersonInSpace {
  * (я не использовал API, что мне дали в ТЗ потому что там слишком мало данных, только имя)
  *
  * Я решил воспользоваться Postman чтобы сделать запрос и скопировал полученные данные,
- * которые вставил в файл people-in-space.json
+ * которые вставил в файл peopleinspace.json
  */
 export default class ISSPeopleService {
   getPeopleOnISS(): Cosmonaut[] {
@@ -38,14 +39,28 @@ export default class ISSPeopleService {
     )
 
     return peopleOnISS.map(cosmonaut => {
-      const { name, biophoto, countryflag, launchdate, title } = cosmonaut
+      const {
+        name,
+        biophoto,
+        countryflag,
+        launchdate,
+        title,
+        biolink
+      } = cosmonaut
 
       const start = moment(launchdate)
       const now = moment()
       const duration = moment.duration(now.diff(start))
       const daysInSpace = Math.trunc(duration.asDays())
 
-      return new Cosmonaut(name, biophoto, title, countryflag, daysInSpace)
+      return new Cosmonaut(
+        name,
+        biophoto,
+        title,
+        countryflag,
+        daysInSpace,
+        biolink
+      )
     })
   }
 }

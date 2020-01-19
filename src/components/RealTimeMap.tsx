@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import ISSLocationService from '../business/api/ISSLocationService'
+import Interval from '../business/models/Interval'
 
-export class RealTimeMap extends Component {
+class RealTimeMap extends Component {
   private map!: google.maps.Map
-  private issLocation: ISSLocationService
+  private marker!: google.maps.Marker
+  private issLocationService: ISSLocationService
 
   constructor(props: any) {
     super(props)
-    this.issLocation = new ISSLocationService()
+    this.issLocationService = new ISSLocationService()
   }
 
   async componentDidMount() {
-    const location = await this.issLocation.getISSLocation()
+    const location = await this.issLocationService.getISSLocation()
 
     this.initMap(location)
     this.setUpMarker(location)
+    Interval.subscribe(() => this.updateMarker())
   }
 
   initMap(location: google.maps.LatLng) {
@@ -55,7 +58,12 @@ export class RealTimeMap extends Component {
       title: 'Current ISS Position'
     }
 
-    new google.maps.Marker(options)
+    this.marker = new google.maps.Marker(options)
+  }
+
+  async updateMarker() {
+    const location = await this.issLocationService.getISSLocation()
+    this.marker?.setPosition(location)
   }
 
   render() {

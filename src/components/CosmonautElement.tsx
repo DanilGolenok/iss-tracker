@@ -1,15 +1,19 @@
 import React from 'react'
 import Cosmonaut from '../business/models/Cosmonaut'
 
-interface Props {
+type Props = {
   cosmonaut: Cosmonaut
 }
 
 const CosmonautElement: React.FC<Props> = ({ cosmonaut }) => {
-  const { name, title, photo, flag, daysInSpace } = cosmonaut
+  const { name, title, photo, flag, daysInSpace, wikiPage } = cosmonaut
+
+  const goToWikiPage = (url: string) => {
+    window.open(url, '_blank')
+  }
 
   return (
-    <div className="cosmonaut">
+    <div onClick={() => goToWikiPage(wikiPage)} className="cosmonaut">
       <div className="bio">
         <div className="photo">
           <img src={photo} alt="cosmonaut photo" />
