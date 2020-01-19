@@ -1,19 +1,17 @@
 interface ISSPosition {
-  iss_position: {
-    latitude: number
-    longitude: number
-  }
+  latitude: number
+  longitude: number
 }
 
 export default class ISSLocationService {
   async getISSLocation(): Promise<google.maps.LatLng> {
-    const URL = 'http://api.open-notify.org/iss-now.json'
+    const URL = 'https://api.wheretheiss.at/v1/satellites/25544'
 
     const data = await fetch(URL)
     const location: ISSPosition = await data.json()
 
-    const { latitude, longitude } = location.iss_position
+    const { latitude, longitude } = location
 
-    return new google.maps.LatLng(latitude, longitude)
+    return new google.maps.LatLng(+latitude.toFixed(5), +longitude.toFixed(5))
   }
 }
